@@ -7,7 +7,7 @@ Muhammad Fathur Aziz — 5054241043
 Tugas-3/
 ├── README.md
 ├── notebook/
-│   └── segmentasi_instance_5054241043.ipynb   notebook utama (Colab): training 3 model, evaluasi 2 test set,
+│   └── segmentasi_instance_5054241043.ipynb   notebook utama (Colab, beserta output run 24 Nov): training, evaluasi 2 test set,
 │                                              variabel NRP, analisis kegagalan, eksperimen, demo
 ├── scripts/
 │   └── siapkan_foto.py                        konversi foto HP (HEIC) -> JPG, tabel EXIF, saran kondisi sulit
@@ -15,7 +15,15 @@ Tugas-3/
 │   └── kondisi_foto.csv                       kondisi tiap foto test sendiri (normal/redup/backlight/oklusi/sudut_ekstrem)
 ├── bukti/
 │   ├── metadata_exif.csv                      EXIF tiap foto (tanpa koordinat GPS)
-│   └── screenshot_anotasi/                    screenshot proses anotasi di Roboflow
+│   ├── screenshot_anotasi/                    screenshot proses anotasi di Roboflow
+│   ├── results_<run>.csv                      log training per epoch (9 run)
+│   ├── gpu_time_log.csv                       waktu GPU per run (otomatis)
+│   ├── tabel_hasil_utama.csv                  mAP test asli vs test sendiri
+│   ├── tabel_variabel_nrp.csv                 variabel NRP 25/50/100% untuk ketiga model
+│   ├── ap_per_kelas.csv, mAP50_per_kondisi.csv, statistik_dataset.csv
+│   └── diagnosis_per_foto_Y11_100.csv         dasar pemilihan foto kegagalan
+├── hasil/
+│   └── gambar/                                grafik NRP, perbandingan model, kurva training, H1, foto kegagalan
 └── docs/
     ├── Logbook.md                             logbook mingguan + hipotesis bertanggal
     └── Penggunaan_AI.md                       deklarasi penggunaan AI + kasus saran AI yang salah
