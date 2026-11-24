@@ -1,0 +1,242 @@
+<title>Shot List Test Set Indoor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: satu kolom sempit seperti call sheet fotografer; kartu foto berbaris, filter lengket di atas */
+:root{
+  --bg:#f3f4f1; --surface:#ffffff; --ink:#1d2321; --muted:#5d6762; --line:#d9ddd8;
+  --accent:#0f6b5c; --accent-soft:#dcefe9;
+  --redup:#4b4f9e; --backlight:#b0651a; --oklusi:#9c2f52; --sudut:#3a7d2a; --normal:#6b7570;
+  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --f-body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#141917; --surface:#1c2320; --ink:#e7ece9; --muted:#9aa5a0; --line:#2e3833;
+  --accent:#5cc7b2; --accent-soft:#1f3b35;
+  --redup:#9ea2f0; --backlight:#e9a35c; --oklusi:#ec86a6; --sudut:#8fd27c; --normal:#a3ada8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#141917; --surface:#1c2320; --ink:#e7ece9; --muted:#9aa5a0; --line:#2e3833;
+  --accent:#5cc7b2; --accent-soft:#1f3b35;
+  --redup:#9ea2f0; --backlight:#e9a35c; --oklusi:#ec86a6; --sudut:#8fd27c; --normal:#a3ada8; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:760px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:flex;flex-direction:column;gap:28px}
+h1,h2{font-family:var(--f-display);text-wrap:balance;margin:0;line-height:1.15}
+h1{font-size:clamp(28px,7vw,40px);letter-spacing:-.01em}
+h2{font-size:21px}
+p{margin:0}
+.lede{color:var(--muted);max-width:62ch}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+header{display:flex;flex-direction:column;gap:10px}
+section{display:flex;flex-direction:column;gap:12px}
+.meter{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.m{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:2px}
+.m b{font-family:var(--f-mono);font-size:22px;font-variant-numeric:tabular-nums}
+.m span{font-size:12.5px;color:var(--muted)}
+.m.ok b{color:var(--accent)}
+ol.rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px}
+ol.rules li::marker{font-family:var(--f-mono);color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--f-mono);font-size:12.5px;padding:3px 8px;border-radius:6px;background:var(--accent-soft);color:var(--ink)}
+.grp{display:flex;flex-direction:column;gap:6px}
+.grp h3{margin:0;font-size:13px;font-weight:600;color:var(--muted)}
+.note{border-left:3px solid var(--backlight);padding:8px 12px;background:var(--surface);border-radius:0 8px 8px 0;font-size:14px}
+.filters{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;display:flex;flex-wrap:wrap;gap:6px;border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.filters button{font:500 13px var(--f-body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.filters button:focus-visible,.shot input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.loc{display:flex;flex-direction:column;gap:8px}
+.loc h2{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.loc h2 small{font:500 13px var(--f-mono);color:var(--muted)}
+.shot{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px}
+.shot input{width:22px;height:22px;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}
+.shot .head{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.code{font-family:var(--f-mono);font-size:13px;color:var(--muted)}
+.what{font-weight:600}
+.badge{font:600 11px var(--f-mono);letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:5px;border:1.5px solid currentColor}
+.b-normal{color:var(--normal)} .b-redup{color:var(--redup)} .b-backlight{color:var(--backlight)} .b-oklusi{color:var(--oklusi)} .b-sudut{color:var(--sudut)}
+.objs{grid-column:2;font-size:13.5px;color:var(--muted)}
+.objs code{font-family:var(--f-mono);font-size:12.5px;color:var(--ink)}
+.tip{grid-column:2;font-size:13.5px}
+.shot.done{opacity:.55}
+.shot.done .what{text-decoration:line-through}
+.shot.spare{border-style:dashed}
+.after ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.after code,.rules code{font-family:var(--f-mono);font-size:13px;background:var(--accent-soft);padding:1px 5px;border-radius:4px;overflow-wrap:anywhere}
+.reset{align-self:flex-start;font:500 13px var(--f-body);background:none;border:1px solid var(--line);color:var(--muted);padding:6px 12px;border-radius:8px;cursor:pointer}
+@media (max-width:480px){.meter{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.meter .m:last-child{grid-column:span 2}}
+@media (prefers-reduced-motion:no-preference){.shot{transition:opacity .2s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Tugas 3 · Segmentasi Instance · 5054241043</div>
+    <h1>Shot list test set ruangan</h1>
+    <p class="lede">Daftar foto untuk test set buatan sendiri. Targetnya 48 foto: 40 wajib + 8 cadangan, dengan 17 foto kondisi sulit (syarat minimal 10). Centang setiap foto yang sudah diambil; centang tersimpan di browser ini.</p>
+  </header>
+
+  <div class="meter" aria-live="polite">
+    <div class="m" id="m-total"><b id="n-total">0/48</b><span>foto diambil (syarat ≥40)</span></div>
+    <div class="m" id="m-hard"><b id="n-hard">0/17</b><span>kondisi sulit (syarat ≥10)</span></div>
+    <div class="m"><b id="n-loc">0/7</b><span>lokasi tersentuh</span></div>
+  </div>
+
+  <section>
+    <h2>Aturan saat memotret</h2>
+    <ol class="rules">
+      <li>Pakai <b>kamera bawaan HP</b>. Jangan pakai filter, mode Portrait, atau zoom digital. Jangan ambil foto dari WhatsApp atau screenshot, karena EXIF-nya hilang.</li>
+      <li>Pakai rasio 4:3 dan utamakan <b>landscape</b>. Versi dataset sebelumnya di-resize ke 640×480 (landscape), jadi sisakan ±8 foto portrait saja sebagai variasi.</li>
+      <li>Setiap frame berisi <b>5–15 objek</b> dari daftar kelas di bawah. Lebih dari itu, anotasinya akan sangat lama.</li>
+      <li>Hindari foto kembar: antar foto, <b>pindah minimal 1 m atau ubah sudut minimal 30°</b>.</li>
+      <li>Jangan memotret wajah orang lain tanpa izin. Kelas <code>person</code> sengaja tidak dijadikan target.</li>
+      <li>Untuk foto sulit, kondisinya harus <b>benar-benar terjadi</b> (lampu memang dimatikan, jendela memang terang). Jangan disimulasikan dengan edit foto.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Objek yang dicari</h2>
+    <p class="lede">Ini kelas di dataset Panoptic Indoor v5 yang umum ada di kos, rumah, dan kampus. Ambil foto yang memuat sebanyak mungkin kelas ini.</p>
+    <div class="grp"><h3>Furnitur</h3><div class="chips"><span class="chip">chair</span><span class="chip">couch</span><span class="chip">bed</span><span class="chip">dining table</span><span class="chip">table-merged</span><span class="chip">shelf</span><span class="chip">cabinet-merged</span><span class="chip">counter</span></div></div>
+    <div class="grp"><h3>Elektronik</h3><div class="chips"><span class="chip">laptop</span><span class="chip">keyboard</span><span class="chip">mouse</span><span class="chip">cell phone</span><span class="chip">tv</span><span class="chip">remote</span><span class="chip">clock</span><span class="chip">light</span><span class="chip">refrigerator</span><span class="chip">microwave</span><span class="chip">plug</span></div></div>
+    <div class="grp"><h3>Barang kecil</h3><div class="chips"><span class="chip">bottle</span><span class="chip">cup</span><span class="chip">bowl</span><span class="chip">plate</span><span class="chip">spoon</span><span class="chip">fork</span><span class="chip">book</span><span class="chip">paper</span><span class="chip">box</span><span class="chip">backpack</span><span class="chip">handbag</span><span class="chip">scissors</span><span class="chip">vase</span><span class="chip">potted plant</span><span class="chip">trash-bin</span></div></div>
+    <div class="grp"><h3>Kamar mandi &amp; tekstil</h3><div class="chips"><span class="chip">sink</span><span class="chip">toilet</span><span class="chip">towel</span><span class="chip">toothbrush</span><span class="chip">mirror-stuff</span><span class="chip">pillow</span><span class="chip">blanket</span><span class="chip">curtain</span><span class="chip">rug-merged</span></div></div>
+    <div class="grp"><h3>Struktur ruangan (stuff)</h3><div class="chips"><span class="chip">wall-*</span><span class="chip">floor-*</span><span class="chip">ceiling-merged</span><span class="chip">door-stuff</span><span class="chip">window-other</span><span class="chip">window-blind</span><span class="chip">stairs</span><span class="chip">fire-extinguisher</span></div></div>
+    <p class="note">Dataset ini punya 93 kelas, dan sebagian adalah salah ketik dari pembuatnya: <code>ligjt</code>, <code>liht</code>, <code>palte</code>, <code>spon</code>, <code>staris</code>, <code>towl</code>, <code>windo</code>, dan lain-lain. Saat anotasi nanti, pakai <b>hanya nama yang benar</b> seperti di atas. Monitor komputer dianotasi sebagai <code>tv</code>, sesuai konvensi COCO yang dipakai dataset ini.</p>
+  </section>
+
+  <nav class="filters" aria-label="Filter daftar foto" id="filters"></nav>
+  <div id="list" style="display:flex;flex-direction:column;gap:26px"></div>
+
+  <section class="after">
+    <h2>Setelah memotret</h2>
+    <ol>
+      <li>Di iPhone, buka <b>Settings → Photos → Transfer to Mac or PC → Keep Originals</b>. Setelah itu pindahkan foto lewat kabel USB ke satu folder, misalnya <code>Tugas-3\foto_asli</code>.</li>
+      <li>Ambil <b>screenshot galeri HP</b> yang memperlihatkan foto beserta tanggalnya, sebagai bukti keaslian.</li>
+      <li>Jalankan <code>python siapkan_foto.py foto_asli --keluar foto_jpg</code>. Hasilnya JPG tanpa GPS, <code>bukti/metadata_exif.csv</code>, dan <code>kondisi_foto.csv</code>.</li>
+      <li>Buka <code>kondisi_foto.csv</code> lalu isi kolom <code>kondisi</code> sesuai kode foto di halaman ini (normal / redup / backlight / oklusi / sudut_ekstrem). Skrip hanya bisa menebak redup dan backlight.</li>
+      <li>Kalau ada foto yang buram atau ternyata tidak memuat kelas target, hapus lalu ganti dengan foto cadangan (bertanda garis putus-putus).</li>
+    </ol>
+  </section>
+  <button class="reset" id="reset" type="button">Hapus semua centang</button>
+</div>
+
+<script>
+const K = {normal:'Normal', redup:'Redup', backlight:'Backlight', oklusi:'Oklusi', sudut:'Sudut ekstrem'};
+const LOC = [
+ ['Kamar kos', [
+  ['K01','normal','Foto lebar dari ambang pintu','bed, pillow, blanket, wall, floor, window, curtain','Seluruh kamar masuk frame, posisi HP setinggi dada.'],
+  ['K02','normal','Meja belajar dari samping','laptop, keyboard, mouse, book, cup, bottle, chair','Kursi ikut masuk frame.'],
+  ['K03','normal','Rak atau lemari','shelf, book, box, backpack, clock','Mundur sampai seluruh rak terlihat.'],
+  ['K04','normal','Dari kasur menghadap pintu','door-stuff, light, wall, trash-bin, rug-merged',''],
+  ['K05','normal','Sudut kamar, portrait','chair, backpack, handbag, towel','Salah satu foto portrait.'],
+  ['K06','normal','Meja dari atas 45°','laptop, cell phone, remote, cup, scissors, paper',''],
+  ['K07','normal','Jendela dengan cahaya samping (bukan backlight)','window-other, curtain, potted plant, wall','Matahari dari samping, bukan dari depan kamera.'],
+  ['K08','normal','Lantai dan barang di bawah','floor-*, rug-merged, box, backpack','Posisi kamera tetap normal (tidak dari lantai).'],
+  ['K09','redup','Lampu utama mati, hanya lampu meja','meja dan isinya, chair','Jangan pakai flash dan jangan pakai Night mode.'],
+  ['K10','redup','Malam, hanya cahaya layar laptop','laptop, keyboard, cup, bottle','Biarkan foto memang gelap.'],
+  ['K11','backlight','Meja membelakangi jendela siang','laptop, chair, bottle, window-other','Jendela terang di belakang objek, objek jadi gelap.'],
+  ['K12','oklusi','Meja penuh barang yang saling menutupi','book, bottle, cup, box, cell phone','Tumpuk dan susun barang sampai saling menutupi sebagian.'],
+  ['K13','sudut','Dari lantai ke atas (low angle)','bed, chair, ceiling-merged, light','HP diletakkan hampir di lantai.'],
+  ['K14','sudut','Top-down tepat di atas meja','laptop, book, cup, mouse, paper','Kamera tegak lurus ke bawah.'],
+  ['K15','normal','Cadangan: kamar dari arah lain','bebas, minimal 5 kelas target','',1],
+ ]],
+ ['Kamar mandi', [
+  ['M01','normal','Foto lebar dari pintu','sink, toilet, towel, mirror-stuff, wall-tile','Pastikan tidak ada pantulan dirimu di cermin.'],
+  ['M02','normal','Wastafel dan cermin, jarak dekat','sink, toothbrush, bottle, cup, mirror-stuff',''],
+  ['M03','normal','Handuk dan gantungan','towel, door-stuff, wall-tile','',1],
+ ]],
+ ['Dapur / pantry', [
+  ['D01','normal','Kulkas dan sekitarnya','refrigerator, microwave, cabinet-merged, bottle',''],
+  ['D02','normal','Kompor dan panci','stove-merged, pan, counter, bowl',''],
+  ['D03','normal','Bak cuci piring','sink, bowl, plate, cup, spoon',''],
+  ['D04','normal','Meja makan','dining table, plate, fork, spoon, cup, chair',''],
+  ['D05','oklusi','Rak piring penuh','bowl, plate, cup yang bertumpuk','Piring dan mangkuk yang saling menutupi adalah inti foto ini.'],
+  ['D06','backlight','Meja makan dekat jendela atau pintu terbuka','dining table, chair, bottle, window-other',''],
+  ['D07','redup','Dapur malam, hanya lampu kecil','refrigerator, counter, bowl, bottle',''],
+ ]],
+ ['Ruang tamu / rumah', [
+  ['R01','normal','Sofa dan bantal','couch, pillow, tv, rug-merged, wall',''],
+  ['R02','normal','TV dan rak','tv, remote, shelf, clock, vase',''],
+  ['R03','normal','Tanaman dan dinding','potted plant, clock, wall, window-other',''],
+  ['R04','oklusi','Sofa penuh tas, bantal, dan selimut','couch, pillow, backpack, handbag, blanket','Barang saling menimpa.'],
+  ['R05','backlight','Sofa membelakangi jendela atau pintu terang','couch, chair, window-other',''],
+  ['R06','sudut','Dari atas tangga atau tempat tinggi','stairs, floor-*, couch, rug-merged','Sudut tajam dari atas.'],
+  ['R07','normal','Cadangan: sudut rumah lain','bebas, minimal 5 kelas target','',1],
+ ]],
+ ['Ruang kelas ITS', [
+  ['C01','normal','Dari belakang kelas','chair, table-merged, wall, light, window-other','Minta izin dulu kalau ada orang di dalam.'],
+  ['C02','normal','Dari depan (podium)','chair, table-merged, door-stuff, ceiling-merged',''],
+  ['C03','normal','Barisan kursi, jarak dekat','chair, backpack, bottle, book',''],
+  ['C04','normal','Pintu dan perlengkapan','door-stuff, trash-bin, fire-extinguisher, wall',''],
+  ['C05','oklusi','Kursi berjejer saling menutupi','chair (banyak instance), table-merged','Foto dari ujung barisan supaya kursi bertumpuk di frame.'],
+  ['C06','backlight','Menghadap jendela besar di siang hari','window-other, window-blind, chair, table-merged',''],
+  ['C07','redup','Sebagian lampu kelas dimatikan','chair, table-merged, light','Lakukan hanya saat kelas kosong dan sudah izin.'],
+  ['C08','sudut','Dari lantai ke kolong meja dan kursi','chair, table-merged, floor-*',''],
+ ]],
+ ['Laboratorium', [
+  ['L01','normal','Satu workstation','tv (monitor), keyboard, mouse, chair','Monitor dianotasi sebagai tv.'],
+  ['L02','normal','Barisan komputer','tv (monitor), keyboard, chair, table-merged',''],
+  ['L03','normal','Keyboard dan mouse dari dekat','keyboard, mouse, cell phone, cup',''],
+  ['L04','oklusi','Meja penuh laptop, tas, dan botol','laptop, backpack, bottle, book, paper',''],
+  ['L05','normal','Pintu lab dan rak','door-stuff, shelf, box, fire-extinguisher',''],
+  ['L06','normal','Cadangan: sudut lab lain','bebas, minimal 5 kelas target','',1],
+ ]],
+ ['Perpustakaan / kantin', [
+  ['P01','normal','Rak buku perpustakaan','shelf, book, chair',''],
+  ['P02','normal','Meja baca','table-merged, chair, laptop, book',''],
+  ['P03','normal','Meja kantin','dining table, chair, cup, bottle, bowl, plate',''],
+  ['P04','normal','Cadangan: kantin dari sudut lain','dining table, chair, trash-bin','',1],
+  ['P05','normal','Cadangan bebas','bebas, minimal 5 kelas target','',1],
+ ]],
+];
+const ALL = LOC.flatMap(([l,s])=>s.map(x=>({loc:l,id:x[0],k:x[1],what:x[2],objs:x[3],tip:x[4],spare:!!x[5]})));
+let done = {};
+try{ done = JSON.parse(localStorage.getItem('shotlist-t3')||'{}') }catch(e){ done = {} }
+const save=()=>{ try{ localStorage.setItem('shotlist-t3',JSON.stringify(done)) }catch(e){} };
+let filter = 'semua';
+const FILTERS = [['semua','Semua'],['sulit','Hanya sulit'],['belum','Belum diambil'],['redup','Redup'],['backlight','Backlight'],['oklusi','Oklusi'],['sudut','Sudut ekstrem']];
+const fEl = document.getElementById('filters');
+FILTERS.forEach(([v,t])=>{const b=document.createElement('button');b.type='button';b.textContent=t;b.dataset.v=v;b.setAttribute('aria-pressed',v===filter);b.onclick=()=>{filter=v;render()};fEl.appendChild(b)});
+const esc=s=>s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function show(x){
+  if(filter==='semua') return true;
+  if(filter==='sulit') return x.k!=='normal';
+  if(filter==='belum') return !done[x.id];
+  return x.k===filter;
+}
+function render(){
+  fEl.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.v===filter));
+  const list=document.getElementById('list'); list.innerHTML='';
+  LOC.forEach(([l])=>{
+    const items=ALL.filter(x=>x.loc===l&&show(x)); if(!items.length) return;
+    const all=ALL.filter(x=>x.loc===l), got=all.filter(x=>done[x.id]).length;
+    const sec=document.createElement('section'); sec.className='loc';
+    sec.innerHTML=`<h2>${l} <small>${got}/${all.length}</small></h2>`;
+    items.forEach(x=>{
+      const d=document.createElement('label'); d.className='shot'+(done[x.id]?' done':'')+(x.spare?' spare':''); d.htmlFor='c-'+x.id;
+      d.innerHTML=`<input type="checkbox" id="c-${x.id}" ${done[x.id]?'checked':''}>
+        <div class="head"><span class="code">${x.id}</span><span class="badge b-${x.k}">${K[x.k]}</span>${x.spare?'<span class="code">cadangan</span>':''}</div>
+        <div class="what" style="grid-column:2">${esc(x.what)}</div>
+        <div class="objs">Objek: ${x.objs.split(', ').map(o=>'<code>'+esc(o)+'</code>').join(', ')}</div>
+        ${x.tip?`<div class="tip">${esc(x.tip)}</div>`:''}`;
+      d.querySelector('input').onchange=e=>{ if(e.target.checked) done[x.id]=1; else delete done[x.id]; save(); render(); };
+      sec.appendChild(d);
+    });
+    list.appendChild(sec);
+  });
+  const n=ALL.filter(x=>done[x.id]).length, hard=ALL.filter(x=>x.k!=='normal');
+  const nh=hard.filter(x=>done[x.id]).length, locs=LOC.filter(([l])=>ALL.some(x=>x.loc===l&&done[x.id])).length;
+  document.getElementById('n-total').textContent=`${n}/${ALL.length}`;
+  document.getElementById('n-hard').textContent=`${nh}/${hard.length}`;
+  document.getElementById('n-loc').textContent=`${locs}/${LOC.length}`;
+  document.getElementById('m-total').classList.toggle('ok',n>=40);
+  document.getElementById('m-hard').classList.toggle('ok',nh>=10);
+}
+document.getElementById('reset').onclick=e=>{
+  const b=e.currentTarget;
+  if(b.dataset.armed){ done={}; save(); render(); b.textContent='Hapus semua centang'; delete b.dataset.armed; }
+  else { b.dataset.armed=1; b.textContent='Klik sekali lagi untuk menghapus'; setTimeout(()=>{ if(b.dataset.armed){ delete b.dataset.armed; b.textContent='Hapus semua centang'; } },4000); }
+};
+render();
+</script>
