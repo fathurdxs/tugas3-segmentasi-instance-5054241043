@@ -1,0 +1,10 @@
+mulai,selesai,model,eksperimen,durasi_menit,perangkat,status,catatan
+2026-11-22T12:40:05,2026-11-22T12:59:21,yolo11n-seg.pt,Y11_100,19.25,Tesla T4,selesai,data latih 100% (397 citra)
+2026-11-22T12:59:21,2026-11-22T13:11:11,yolo11n-seg.pt,Y11_50,11.83,Tesla T4,selesai,data latih 50% (198 citra)
+2026-11-22T13:11:11,2026-11-22T13:19:05,yolo11n-seg.pt,Y11_25,7.9,Tesla T4,selesai,data latih 25% (99 citra)
+2026-11-22T13:19:05,2026-11-22T13:38:21,yolov8n-seg.pt,Y8_100,19.28,Tesla T4,selesai,data latih 100% (397 citra)
+2026-11-22T13:38:21,2026-11-22T14:15:50,maskrcnn_resnet50_fpn_v2,MRCNN_100,37.47,Tesla T4,selesai,data latih 100% (397 citra)
+2026-11-24T15:45:40,2026-11-24T15:56:34,yolov8n-seg.pt,Y8_50,10.89,Tesla T4,selesai,data latih 50% (198 citra)
+2026-11-24T15:56:34,2026-11-24T15:59:02,yolov8n-seg.pt,Y8_25,2.46,Tesla T4,selesai,data latih 25% (99 citra)
+2026-11-24T15:59:02,2026-11-24T16:23:53,maskrcnn_resnet50_fpn_v2,MRCNN_50,24.84,Tesla T4,selesai,data latih 50% (198 citra)
+2026-11-24T16:23:53,2026-11-24T16:44:25,maskrcnn_resnet50_fpn_v2,MRCNN_25,20.53,Tesla T4,selesai,data latih 25% (99 citra)

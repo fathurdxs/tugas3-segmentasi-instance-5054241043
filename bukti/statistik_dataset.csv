@@ -1,0 +1,76 @@
+,train,val,test,own
+backpack,3,2,31,0
+bed,26,6,71,6
+blanket,19,6,13,0
+book,105,15,349,0
+bottle,62,10,58,9
+bowl,65,40,76,0
+box,95,85,1,29
+cabinet-merged,47,19,110,10
+cardboard,2,0,14,0
+ceiling-merged,77,28,149,0
+cell phone,8,5,40,0
+chair,217,67,353,18
+clock,3,0,4,0
+couch,18,8,75,2
+counter,102,58,67,0
+cup,25,47,131,0
+curtain,3,0,107,0
+dining table,4,1,112,12
+door-stuff,64,11,64,4
+fire-extinguisher,29,16,4,0
+floor-other-merged,261,92,239,0
+floor-wood,99,40,130,0
+flower,0,0,6,0
+food-other-merged,127,108,149,0
+fork,4,1,24,0
+hair drier,0,0,2,0
+handbag,5,3,125,2
+keyboard,0,0,7,10
+knife,12,5,19,0
+laptop,8,3,27,9
+light,41,24,295,3
+microwave,3,1,7,0
+mirror-stuff,8,2,34,0
+mouse,0,0,8,7
+oven,3,3,13,0
+pan,225,91,34,0
+paper,28,20,6,0
+paper-merged,1,1,51,0
+person,192,90,413,0
+pillow,39,8,37,11
+plate,86,77,104,0
+plug,57,25,14,0
+potted plant,97,31,138,0
+refrigerator,2,6,5,0
+remote,9,1,0,0
+rug-merged,35,13,107,0
+scissor,0,0,2,0
+scissors,0,0,6,0
+shelf,2,4,0,0
+sink,8,3,30,0
+spoon,35,40,36,0
+st-,1,0,0,0
+stairs,175,67,6,0
+stove-merged,73,37,33,0
+table-merged,319,134,258,0
+teddy bear,0,0,6,0
+toaster,0,1,4,0
+toilet,2,1,14,6
+toothbrush,0,0,14,0
+towel,14,4,19,0
+toy,217,77,41,0
+trash-bin,153,70,4,3
+tree-merged,1,0,0,0
+tv,2,1,35,11
+vase,4,0,39,0
+wall,2,0,0,0
+wall-brick,48,30,25,0
+wall-other-merged,756,315,650,0
+wall-stone,4,0,2,0
+wall-tile,17,2,47,0
+wall-wood,14,7,30,0
+wallet,197,91,5,0
+window-blind,29,14,71,0
+window-other,90,55,144,6
+JUMLAH CITRA,397,166,359,42
