@@ -20,15 +20,12 @@ Waktu GPU tercatat otomatis di `bukti/gpu_time_log.csv`. Di sini tulis konteks d
 |  |  |  |  |  |
 
 ## Hipotesis (ditulis 2026-11-24, sebelum run tambahan variabel NRP)
-> Catatan kronologi: ketentuan "hipotesis sebelum training" baru diumumkan setelah run utama (22 Nov) selesai. Hipotesis di bawah ditulis sebelum run Y8_50, Y8_25, MRCNN_50, dan MRCNN_25.
+> Catatan kronologi: ketentuan untuk menulis hipotesis sebelum training baru diumumkan pada 24 Nov, setelah run utama (Y11_100, Y11_50, Y11_25, Y8_100, MRCNN_100) selesai pada 22 Nov. Tanggal tidak dimundurkan. Hipotesis ini ditulis sebelum run tambahan Y8_50, Y8_25, MRCNN_50, dan MRCNN_25 dimulai, dan waktunya dapat dicek dari riwayat commit Git.
 
-**Tulis dengan kata-katamu sendiri.** Isinya: model mana yang unggul, pada kelas apa, dan mengapa (berdasarkan arsitektur). Juga prediksimu soal efek 25/50/100% data pada YOLOv8n-seg dan Mask R-CNN.
+Model yang unggul kemungkinan adalah YOLO11n-seg karena model tersebut adalah model terbaru dari eksperimen ini. Kelas yang paling bagus kemungkinan adalah dining-table karena bentuk meja dataset dengan data test cukup mirip.
 
-- Model yang diprediksi unggul & alasannya: …
-- Kelas yang diprediksi paling bagus / paling buruk & alasannya: …
-- Prediksi efek jumlah data (25/50/100%) per model & alasannya: …
 
 ## Catatan keputusan penting
-- Kelas yang dipakai di anotasi sendiri: …
-- Foto kondisi sulit: … dari … foto (rincian di `kondisi_foto.csv`)
-- Model terbaik di test sendiri: … karena …
+- Kelas yang dipakai di anotasi sendiri: bed, bottle, box, cabinet, chair, couch, dining table, door, handbag, keyboard, laptop, tv, mouse, pillow, toilet.
+- Foto kondisi sulit: 12 dari 42 foto (rincian di `kondisi_foto.csv`)
+- Model terbaik di test sendiri: YOLO11n-seg karena lebih tahan terhadap domain shift.
