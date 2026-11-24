@@ -27,5 +27,5 @@ Model yang unggul kemungkinan adalah YOLO11n-seg karena model tersebut adalah mo
 
 ## Catatan keputusan penting
 - Kelas yang dipakai di anotasi sendiri: bed, bottle, box, cabinet, chair, couch, dining table, door, handbag, keyboard, laptop, tv, mouse, pillow, toilet.
-- Foto kondisi sulit: 12 dari 42 foto (rincian di `kondisi_foto.csv`)
+- Foto kondisi sulit: 12 dari 42 foto (rincian di `data/kondisi_foto.csv`)
 - Model terbaik di test sendiri: YOLO11n-seg karena lebih tahan terhadap domain shift.

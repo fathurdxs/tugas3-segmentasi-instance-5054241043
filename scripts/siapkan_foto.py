@@ -6,13 +6,15 @@ Yang dilakukan skrip ini:
    konsisten ruang_01.jpg, ruang_02.jpg, ... -> siap diunggah ke Roboflow.
    Data GPS dibuang dari JPG hasil konversi (privasi: project Roboflow gratis bersifat publik).
 3. Menulis bukti/metadata_exif.csv  : EXIF tiap foto (tanggal, perangkat, lensa, ISO, eksposur, flash).
-4. Menulis kondisi_foto.csv         : saran kondisi (normal/redup/backlight) dari statistik kecerahan.
+4. Menulis data/kondisi_foto.csv    : saran kondisi (normal/redup/backlight) dari statistik kecerahan.
    PERIKSA DAN KOREKSI file ini secara manual: oklusi dan sudut ekstrem tidak bisa dideteksi
    otomatis. Notebook memakai file ini untuk analisis performa per kondisi.
 
 Pemakaian:
     pip install pillow pillow-heif opencv-python numpy
-    python siapkan_foto.py "folder/foto_asli" --keluar foto_jpg
+    python scripts/siapkan_foto.py foto/asli_heic
+
+Semua path keluaran relatif ke root repo (folder induk scripts/), dari mana pun skrip dijalankan.
 """
 import argparse
 import csv
@@ -77,10 +79,15 @@ def statistik_cahaya(rgb):
             "porsi_piksel_gelap": round(gelap, 3), "ketajaman_laplacian": round(tajam, 1)}, saran
 
 
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+F_EXIF = os.path.join(ROOT, "bukti", "metadata_exif.csv")
+F_KONDISI = os.path.join(ROOT, "data", "kondisi_foto.csv")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("masukan", help="folder berisi foto asli dari HP")
-    ap.add_argument("--keluar", default="foto_jpg", help="folder hasil konversi JPG")
+    ap.add_argument("--keluar", default=os.path.join(ROOT, "foto", "jpg"), help="folder hasil konversi JPG")
     ap.add_argument("--maks", type=int, default=1600, help="sisi terpanjang (px)")
     ap.add_argument("--awalan", default="ruang", help="awalan nama file hasil")
     a = ap.parse_args()
@@ -89,7 +96,8 @@ def main():
     if not files:
         sys.exit(f"Tidak ada foto di {a.masukan}")
     os.makedirs(a.keluar, exist_ok=True)
-    os.makedirs("bukti", exist_ok=True)
+    os.makedirs(os.path.dirname(F_EXIF), exist_ok=True)
+    os.makedirs(os.path.dirname(F_KONDISI), exist_ok=True)
 
     baris_exif, baris_kondisi = [], []
     for i, f in enumerate(files, 1):
@@ -111,19 +119,19 @@ def main():
         baris_kondisi.append({"file": nama, "kondisi": saran, "saran_otomatis": saran, "catatan": ""})
         print(f"{f:>20} -> {nama}  {meta['tanggal_ambil']}  ISO {meta['ISO']}  kecerahan {stat['kecerahan_rata2']:>5}  saran: {saran}")
 
-    with open("bukti/metadata_exif.csv", "w", newline="", encoding="utf-8") as fo:
+    with open(F_EXIF, "w", newline="", encoding="utf-8") as fo:
         w = csv.DictWriter(fo, fieldnames=list(baris_exif[0]))
         w.writeheader(); w.writerows(baris_exif)
-    if os.path.exists("kondisi_foto.csv"):
+    if os.path.exists(F_KONDISI):
         print("\nkondisi_foto.csv sudah ada -> tidak ditimpa (supaya koreksi manualmu aman). "
               "Hapus file itu jika ingin membuat ulang.")
     else:
-        with open("kondisi_foto.csv", "w", newline="", encoding="utf-8") as fo:
+        with open(F_KONDISI, "w", newline="", encoding="utf-8") as fo:
             w = csv.DictWriter(fo, fieldnames=list(baris_kondisi[0]))
             w.writeheader(); w.writerows(baris_kondisi)
 
     n_sulit = sum(b["saran_otomatis"] != "normal" for b in baris_kondisi)
-    print(f"\n{len(files)} foto dikonversi ke '{a.keluar}/'. EXIF: bukti/metadata_exif.csv")
+    print(f"\n{len(files)} foto dikonversi ke '{a.keluar}/'. EXIF: {F_EXIF}")
     print(f"Saran otomatis: {n_sulit} foto redup/backlight. Tandai oklusi / sudut_ekstrem secara manual di kondisi_foto.csv.")
     if len(files) < 40:
         print(f"PERHATIAN: baru {len(files)} foto, ketentuan minimal 40.")

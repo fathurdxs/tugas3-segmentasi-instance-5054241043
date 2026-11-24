@@ -1,9 +1,8 @@
-# Foto asli HP (HEIC, berisi GPS) — jangan pernah di-commit
-test-data/
-# Foto hasil konversi: besar & berisi isi ruangan pribadi (tersimpan di Roboflow)
-foto_jpg/
-foto_upload/
+# Semua foto ruangan (HEIC asli berisi GPS + isi ruangan pribadi) — jangan pernah di-commit.
+# Foto test set tersimpan di project Roboflow privat.
+foto/
 # Materi kuliah
+materi/
 *.pdf
 # Hasil training / data unduhan (disimpan di Google Drive)
 data_tugas3/
