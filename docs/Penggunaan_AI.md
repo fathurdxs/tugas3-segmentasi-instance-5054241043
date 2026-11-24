@@ -2,17 +2,25 @@
 Muhammad Fathur Aziz — 5054241043
 
 ## Alat yang dipakai
-- **Claude (Anthropic) melalui Claude Code**: membaca ketentuan PDF, merancang eksperimen, menulis notebook (`segmentasi_instance_5054241043.ipynb`) dan skrip `siapkan_foto.py`, serta menguji notebook secara lokal dengan dataset sintetis kecil.
-- Bagian yang **saya kerjakan sendiri**: pengambilan foto, anotasi di Roboflow, menjalankan training di Colab, memilih 5 foto kegagalan, menulis interpretasi/analisis, dan laporan.
-  *(Sesuaikan bagian ini dengan yang benar-benar terjadi.)*
+- **Claude Opus 5.5 (Anthropic) melalui Claude Code**: membaca ketentuan PDF, merancang eksperimen, menulis notebook (`notebook/segmentasi_instance_5054241043.ipynb`) dan skrip `scripts/siapkan_foto.py`, menguji notebook secara lokal dengan dataset sintetis kecil, menjalankan dan memantau notebook di Colab lewat Claude in Chrome, merapikan repo Git, serta **menyusun draf laporan di `README.md`** dari angka di `bukti/` dan output notebook.
+- Bagian yang **saya kerjakan sendiri**: pengambilan 51 foto dan pemilihan 42 foto, koreksi dan pemeriksaan seluruh anotasi di Roboflow, penulisan hipotesis, pemberian izin akses (Google Drive, Colab Secrets, login GitHub), serta review laporan.
+- Yang dikerjakan AI atas permintaan saya: pemilihan 5 foto kegagalan dan draf analisisnya, menjalankan training di Colab, dan menyusun draf laporan.
+  *(Tambahkan bagian yang kamu ubah atau tulis ulang sendiri setelah membaca draf laporan.)*
 
 ## Anotasi test set (WAJIB dideklarasikan)
-Anotasi awal test set buatan sendiri dikerjakan oleh **Claude (AI) yang mengoperasikan editor Roboflow lewat ekstensi Claude in Chrome di akun saya**, memakai Smart Select (SAM3) dan polygon manual. Karena memakai akun saya, riwayat anotasi di Roboflow tercatat atas nama saya. Saya kemudian me-review dan mengoreksi anotasi tersebut *(sesuaikan dengan yang benar-benar kamu lakukan)*.
+Anotasi awal test set buatan sendiri dikerjakan oleh **Claude (AI) yang mengoperasikan editor Roboflow lewat ekstensi Claude in Chrome di akun saya**, memakai Smart Select (SAM3) dan polygon manual. Karena memakai akun saya, riwayat anotasi di Roboflow tercatat atas nama saya. Anotasi awal AI ternyata melewatkan banyak detail. Saya kemudian memeriksa dan mengoreksi anotasi di seluruh 42 foto secara manual (22 Nov 2026).
 
 ## Prompt utama
 1. "lihat folder tugas dan tugas-3, bisakah kamu bantu aku pengerjaan tugasnya? ketentuannya ada di pdfnya"
 2. "bantu aku dalam pengambilan foto"
 3. "aku sudah ambil gambar ada di folder datatest, bisakah kamu bantu aku annotate semua ini manual di roboflow?" → "coba laksanakan cara 1"
+4. "aku sudah koreksi anotasi kamu banyak detil yang kamu lewati, dan sudah aku cek semua anotasinya sudah aman, bisakah kamu buka colab dan coba test"
+5. "tiba tiba ada ketentuan baru di tugasnya" (menyesuaikan notebook: variabel NRP untuk ketiga model, sel demo, repo Git)
+6. "bisakah kamu rapikan reponya"
+7. "laporannya dalam readme aja bisakah kamu bantu"
+
+## Draf laporan
+Draf laporan di `README.md` ditulis oleh AI berdasarkan file di `bukti/` dan output notebook. Angka di laporan dihitung ulang dari CSV, bukan dikarang. Penjelasan mekanisme kegagalan dan anomali YOLOv8 25% adalah **interpretasi** yang perlu saya pahami dan periksa sendiri sebelum dipresentasikan. Hipotesis di Logbook ditulis sendiri oleh saya.
 
 ## Kasus kode/saran AI yang salah dan perbaikannya
 Kasus berikut terjadi sungguhan saat notebook diuji lokal (20 November 2026). Pilih minimal satu untuk laporan.
