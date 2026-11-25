@@ -317,7 +317,7 @@ Hipotesis ini **ditolak untuk YOLO** dan hanya sedikit didukung untuk Mask R-CNN
 
 Ditambah 4,4 menit uji cepat pipeline pada 22 Nov (folder terpisah).
 
-**Demo**: bagian 8 notebook menjalankan inferensi pada foto baru (`FOTO_DEMO`, `MODEL_DEMO`, `CONF_DEMO`). Fungsi `ap_kelas('chair')` menampilkan AP satu kelas untuk 9 model.
+**Demo**: bagian 8 notebook menjalankan inferensi pada foto baru (`FOTO_DEMO`, `MODEL_DEMO`, `CONF_DEMO`), dan bagian 8.1 memproses semua foto di folder Drive `Tugas3_Segmentasi/demo/` sekaligus (foto HEIC iPhone otomatis dikonversi). Fungsi `ap_kelas('chair')` menampilkan AP satu kelas untuk 9 model.
 
 ## 11. Keterbatasan
 
