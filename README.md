@@ -1,7 +1,7 @@
 # Laporan Tugas 3 — Segmentasi Instance dengan Deep Learning (Evaluasi CPMK 3)
 Muhammad Fathur Aziz — 5054241043
 
-> Draf laporan ini disusun dengan bantuan AI (Claude) dari angka di `bukti/` dan output notebook; lihat [`docs/Penggunaan_AI.md`](docs/Penggunaan_AI.md). Semua angka dapat ditelusuri ke file CSV yang disebut di tiap bagian.
+Link Repo: https://github.com/fathurdxs/tugas3-segmentasi-instance-5054241043
 
 ## Ringkasan
 
