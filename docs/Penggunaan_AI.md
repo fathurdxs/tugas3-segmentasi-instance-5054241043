@@ -5,7 +5,6 @@ Muhammad Fathur Aziz — 5054241043
 - **Claude Opus 5.5 (Anthropic) melalui Claude Code**: membaca ketentuan PDF, merancang eksperimen, menulis notebook (`notebook/segmentasi_instance_5054241043.ipynb`) dan skrip `scripts/siapkan_foto.py`, menguji notebook secara lokal dengan dataset sintetis kecil, menjalankan dan memantau notebook di Colab lewat Claude in Chrome, merapikan repo Git, serta **menyusun draf laporan di `README.md`** dari angka di `bukti/` dan output notebook.
 - Bagian yang **saya kerjakan sendiri**: pengambilan 51 foto dan pemilihan 42 foto, koreksi dan pemeriksaan seluruh anotasi di Roboflow, penulisan hipotesis, pemberian izin akses (Google Drive, Colab Secrets, login GitHub), serta review laporan.
 - Yang dikerjakan AI atas permintaan saya: pemilihan 5 foto kegagalan dan draf analisisnya, menjalankan training di Colab, dan menyusun draf laporan.
-  *(Tambahkan bagian yang kamu ubah atau tulis ulang sendiri setelah membaca draf laporan.)*
 
 ## Anotasi test set (WAJIB dideklarasikan)
 Anotasi awal test set buatan sendiri dikerjakan oleh **Claude (AI) yang mengoperasikan editor Roboflow lewat ekstensi Claude in Chrome di akun saya**, memakai Smart Select (SAM3) dan polygon manual. Karena memakai akun saya, riwayat anotasi di Roboflow tercatat atas nama saya. Anotasi awal AI ternyata melewatkan banyak detail. Saya kemudian memeriksa dan mengoreksi anotasi di seluruh 42 foto secara manual (22 Nov 2026).
